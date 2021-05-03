@@ -1,0 +1,7 @@
+<div>
+    <simple-notifications [options]="notificationsOptions"></simple-notifications>
+    <div *ngIf="loading" class="loading-overlay">
+        <app-loading-indicator></app-loading-indicator>
+    </div>
+    <router-outlet *ngIf="!loading"></router-outlet>
+</div>

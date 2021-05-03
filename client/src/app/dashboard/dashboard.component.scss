@@ -1,0 +1,39 @@
+@import '../../scss/variables';
+
+h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.video {
+    display: flex;
+    align-items: center;
+    background-color: $theme-black-97;
+    border-radius: $border-radius;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+
+    &:nth-child(even) {
+        background-color: darken($theme-black-97, 2%);
+    }
+
+    .name {
+        flex: 1 1 auto;
+        line-height: 2rem;
+    }
+
+    .options {
+        .note {
+            color: $theme-gray;
+        }
+        .button {
+            width: 100px;
+        }
+    }
+}

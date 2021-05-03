@@ -1,0 +1,169 @@
+// 1. Global
+// ---------
+
+$foundation-palette: (
+    primary: $theme-primary,
+    secondary: $theme-white,
+    success: $theme-success,
+    warning: $theme-warning,
+    alert: $theme-danger,
+);
+
+$light-gray: $theme-gray;
+$medium-gray: $theme-gray;
+$dark-gray: $theme-black-40;
+$black: $theme-black;
+$white: $theme-white;
+$body-background: $theme-white;
+$body-font-color: $theme-black;
+$body-font-family: $font-family;
+$global-radius: $border-radius;
+$global-flexbox: true;
+
+// 4. Base Typography
+// ------------------
+
+$anchor-color: $theme-black-11;
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+// a {
+//     font-weight: 600;
+// }
+
+// 11. Button
+// ----------
+
+$button-padding: 14.5px 42px;
+$button-margin: 0rem 0rem 0rem 0rem;
+$button-color: $theme-white;
+$button-radius: $border-radius;
+$button-hollow-border-width: 1px;
+$button-hollow-hover-lightness: 0%;
+$button-transition: background-color 0.1s ease-out, color 0.1s ease-out, border-color 0.1s ease-out;
+
+$button-sizes: (
+    tiny: 0.6rem,
+    small: $font-size-small,
+    default: $font-size-medium,
+    large: $font-size-large,
+);
+
+button {
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        background-color: darken($theme-primary, 10%);
+    }
+}
+.button {
+    font-weight: 600;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+.button.small {
+    padding: 0.5rem 1rem;
+}
+
+// 19. Forms
+// ---------
+
+$fieldset-border: none;
+$form-spacing: 0.5rem;
+$form-label-color: $theme-black;
+$form-label-font-size: 12px;
+$form-label-font-weight: 700;
+$form-label-line-height: 2.2;
+$select-background: $theme-white;
+$select-triangle-color: $theme-gray;
+$select-radius: $global-radius;
+$input-color: $theme-black;
+$input-placeholder-color: transparentize($theme-black, .5);
+$input-font-family: $font-family;
+$input-font-size: $font-size-medium;
+$input-background: $theme-white;
+$input-background-focus: $input-background;
+$input-background-disabled: $theme-gray;
+$input-border: 1px solid rgba(0,0,0,.15);
+$input-border-focus: 1px solid $theme-primary;
+$input-padding: 0.75rem 1rem;
+$input-shadow: none;
+$input-shadow-focus: none;
+$input-transition: none;
+$input-radius: $global-radius;
+$form-button-radius: $global-radius;
+
+label {
+    font-weight: 900 !important;
+    font-size: 14px !important;
+}
+
+select:invalid {
+    color: $theme-gray;
+}
+select:disabled {
+    color: $theme-gray;
+    background-color: $theme-gray !important;
+}
+select {
+    padding-right: 1.5rem !important;
+    option {
+        color: $theme-white;
+    }
+}
+select.error {
+    border-color: $theme-danger;
+}
+input:disabled {
+    color: $theme-gray;
+}
+input:focus {
+    outline: none;
+}
+
+
+@import '~foundation-sites/scss/foundation';
+@include foundation-global-styles;
+// @include foundation-xy-grid-classes;
+// @include foundation-grid;
+// @include foundation-flex-grid;
+// @include foundation-flex-classes;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
+// @include foundation-breadcrumbs;
+// @include foundation-button-group;
+// @include foundation-callout;
+// @include foundation-card;
+// @include foundation-close-button;
+// @include foundation-menu;
+// @include foundation-menu-icon;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown;
+// @include foundation-dropdown-menu;
+// @include foundation-responsive-embed;
+// @include foundation-label;
+// @include foundation-media-object;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
+// @include foundation-slider;
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+// @include foundation-table;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
+// @include foundation-title-bar;
+// @include foundation-tooltip;
+// @include foundation-top-bar;
+// @include foundation-visibility-classes;
+// @include foundation-float-classes;

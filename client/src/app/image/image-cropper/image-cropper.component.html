@@ -1,0 +1,104 @@
+<h1>Image</h1>
+
+<div class="form-container">
+    <div class="form-row">
+        Use your mouse to draw a rectangle that encloses the shark's fin.<strong> The shark must be facing to the left.</strong>
+    </div>
+</div>
+
+<div #container class="image-container" (mousedown)="onMousedown($event)" (mouseup)="onMouseup($event)" (mousemove)="onMousemove($event)" (mouseout)="onMouseup($event)">
+    <div class="image-rect" *ngIf="showImageRect" [style.top.%]="top" [style.left.%]="left" [style.width.%]="width" [style.height.%]="height"></div>
+    <img class="preview-rect" *ngIf="preview" [style.top.%]="top" [style.left.%]="left" [style.width.%]="width" [style.height.%]="height" [src]="preview" />
+</div>
+
+<div class="form-container" *ngIf="!preview">
+    <div class="form-row">
+        <div class="form-label">Flip Horizontally:</div>
+        <div class="spacer">
+            <p-checkbox [(ngModel)]="flip" [binary]="true" (onChange)="updateImage()"></p-checkbox>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-label">Threshold:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="threshold" [min]="0" [max]="255" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ threshold }}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-label">Alpha:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="alpha" [min]="0" [max]="1" [step]="0.01" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ alpha }}</div>
+    </div>
+    <!--
+    <div class="form-row">
+        <div class="form-label">Red:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="red" [min]="0" [max]="1" [step]="0.1" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ red }}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-label">Green:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="green" [min]="0" [max]="1" [step]="0.1" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ green }}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-label">Blue:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="blue" [min]="0" [max]="1" [step]="0.1" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ blue }}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-label">WW:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="ww" [min]="0" [max]="1024" [step]="1" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ ww }}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-label">WL:</div>
+        <div class="spacer">
+            <p-slider [(ngModel)]="wl" [min]="0" [max]="255" [step]="1" (onChange)="updateImage()"></p-slider>
+        </div>
+        <div class="form-value">{{ wl }}</div>
+    </div>
+    -->
+    <div class="form-row">
+        <button class="button" [disabled]="!showImageRect || loading" (click)="onSubmitPreview()">Submit</button>
+    </div>
+</div>
+
+<div class="form-container" *ngIf="preview && !matches">
+    <div class="form-row">
+        Does the rendered curve look correct?
+    </div>
+    <div class="form-row">
+        <button class="button" [disabled]="loading" (click)="onMatchCurve()">Yes</button>
+        <button class="button hollow" [disabled]="loading" (click)="preview = undefined">No</button>
+    </div>
+</div>
+
+<div class="form-container" *ngIf="matches">
+    <div class="form-row">
+        Select an existing shark or create a new shark.
+    </div>
+
+    <div class="shark-card-container">
+        <div class="shark-card">
+            <img [src]="src(image) | async" />
+            <input type="text" name="name" [(ngModel)]="name" [placeholder]="'Shark Name'" />
+            <button class="button" [disabled]="!name || loading" (click)="onCreateNew()">Create New</button>
+        </div>
+        <div class="shark-card" *ngFor="let match of matches.matches">
+            <img [src]="src(match.image) | async" />
+            <div class="shark-name">{{ match.name }}</div>
+            <button class="button" [disabled]="loading" (click)="onSelectMatch(match)">Select</button>
+        </div>
+    </div>
+</div>

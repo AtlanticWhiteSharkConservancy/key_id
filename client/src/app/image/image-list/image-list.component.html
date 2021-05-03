@@ -1,0 +1,18 @@
+<ng-container *ngIf="matches?.length">
+    <h1>Matches</h1>
+    <div class="image-container">
+        <div class="image" *ngFor="let match of matches">
+            <img [src]="src(match.image)" />
+            <div class="name"><div>{{ match.name }}</div></div>
+        </div>
+    </div>
+    <button class="button small" [disabled]="loading" (click)="onClearMatch()">Clear</button>
+</ng-container>
+
+<h1>Images</h1>
+
+<div class="image-container" *ngIf="images?.length">
+    <a class="image" *ngFor="let image of images" [routerLink]="['/image']" [queryParams]="{ path: image.path }">
+        <img [src]="src(image)" />
+    </a>
+</div>

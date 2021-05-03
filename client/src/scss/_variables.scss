@@ -1,0 +1,28 @@
+// Colors
+
+$theme-black-11: #333;
+$theme-black-40: #666;
+$theme-black-60: #999;
+$theme-black-91: #AAA;
+$theme-black-97: #f5f5f5;
+
+$theme-black: #000;
+$theme-white: #FFF;
+$theme-gray: $theme-black-60;
+
+$theme-primary: #009aff;
+$theme-hover: rgba(255, 255, 255, 0.05);
+
+$theme-success: #42C75D;
+$theme-danger: #FA3E39;
+$theme-warning: #FFC200;
+
+// Fonts and Text
+$font-family: 'Lato', sans-serif;
+
+$font-size-small: 0.875rem;
+$font-size-medium: 1rem;
+$font-size-large: 1.5rem;
+
+// Layout
+$border-radius: 4px;

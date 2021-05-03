@@ -1,0 +1,25 @@
+@import '../../../scss/variables';
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .image {
+        width: 280px;
+        margin: 0px 4px 4px 0px;
+    }
+
+    .name {
+        display: flex;
+        align-items: center;
+        margin: 8px 0px 8px 0px;
+
+        > div {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.button {
+    margin-bottom: 24px;
+}

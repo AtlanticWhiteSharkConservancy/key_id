@@ -1,0 +1,21 @@
+@import '../../../scss/variables';
+
+.loading-indicator {
+    ::ng-deep .ui-progress-spinner {
+        display: flex;
+
+        svg circle {
+            stroke: $theme-primary !important;
+        }
+    }
+
+    ::ng-deep .small {
+        width: 40px;
+        height: 40px;
+    }
+
+    ::ng-deep .xsmall {
+        width: 16px;
+        height: 16px;
+    }
+}

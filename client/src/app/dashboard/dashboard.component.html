@@ -1,0 +1,37 @@
+<h1>Videos</h1>
+
+<ng-container *ngIf="processing?.length">
+    <h2>Processing</h2>
+    <div class="video-container">
+        <div class="video" *ngFor="let video of processing">
+            <div class="name">{{ video.path }}</div>
+            <div class="options"></div>
+        </div>
+    </div>
+</ng-container>
+
+<h2>Processed</h2>
+<div class="video-container">
+    <div class="video" *ngFor="let video of processed">
+        <div class="name">{{ video.path }} <span *ngIf="match(video)">({{ match(video).name }})</span></div>
+        <div class="options">
+            <a class="button small" [routerLink]="['/video']" [queryParams]="{ path: video.path }">View</a>
+        </div>
+    </div>
+</div>
+<div class="empty" *ngIf="!processed?.length">
+    No processed videos.
+</div>
+
+<h2>Unprocessed</h2>
+<div class="video-container">
+    <div class="video" *ngFor="let video of unprocessed">
+        <div class="name">{{ video.path }}</div>
+        <div class="options">
+            <button class="button small" (click)="onProcess(video)">Process</button>
+        </div>
+    </div>
+</div>
+<div class="empty" *ngIf="!unprocessed?.length">
+    No unprocessed videos.
+</div>
